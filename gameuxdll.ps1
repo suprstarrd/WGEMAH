@@ -341,7 +341,9 @@ if (Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*
 if (!(Test-Path "ResourceHacker.exe")) {
     $global:RHOnline = 1
     Write-Host "Downloading Resource Hacker`n" -ForegroundColor Green;
+    # Alternative: Resource Cracker https://www.pelock.com/products/resource-cracker
     Invoke-WebRequest -UseBasicParsing -Uri 'http://www.angusj.com/resourcehacker/resource_hacker.zip' -OutFile '__resource_hacker.zip'
+    # Alternative: Resource Cracker https://www.pelock.com/download/resource-cracker.zip
     $objShell = New-Object -ComObject 'Shell.Application'
     $objFolder = $objShell.NameSpace($PSScriptRoot)
     $objFolder.CopyHere("$PSScriptRoot\__resource_hacker.zip\ResourceHacker.exe", 0x14)
